@@ -32,15 +32,12 @@ pipeline{
                 echo "========executing Status========"
                 script{
                     sh '''#!/bin/bash
-                       PROMETHEUS=up-to-date
-                       GRAFANA=up-to-date
-                       if [ $PROMETHEUS -eq $GRAFANA ]
-                       then
-                       echo "pipeline is successfull"
-                       else
-                       echo "failure"
-                       fi
-                       '''
+                    if [ $PROMETHEUS -eq $GRAFANA ]
+                    then
+                    echo "pipeline is successfull"
+                    else
+                    echo "failure"
+                    fi'''
                 }
             }
             
