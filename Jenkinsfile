@@ -8,6 +8,9 @@ pipeline{
         stage("Checkout"){
             steps{
                 echo "========executing Checkout========"
+                script{
+                    sh(script: "git checkout ${BRANCH}")
+                }
             }
             
         }
