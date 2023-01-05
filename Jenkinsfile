@@ -30,6 +30,18 @@ pipeline{
         stage("Status"){
             steps{
                 echo "========executing Status========"
+                script{
+                    sh '''#!/bin/bash
+                       PROMETHEUS=success
+                       GRAFANA=success
+                       if [ $PROMETHEUS -eq $GRAFANA ]
+                       then
+                       echo "pipeline is successfull"
+                       else
+                       echo "failure"
+                       fi
+                       '''
+                }
             }
             
         }
