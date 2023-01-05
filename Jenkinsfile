@@ -19,7 +19,7 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     //withCredentials([sshUserPrivateKey(credentialsId: 'docker-ssh-key-2', keyFileVariable: 'docker-ssh-key-2', passphraseVariable: 'docker-ssh-key-2', usernameVariable: 'ubuntu')]) {
-                    sh(script: “ssh  ubuntu@54.166.242.36 \ ")
+                    sh(script:“ssh ubuntu@54.166.242.36 \" date \" ")
                     //}
                 }
             }
