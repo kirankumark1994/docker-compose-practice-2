@@ -17,11 +17,7 @@ pipeline{
         stage("Deploy"){
             steps{
                 echo "========executing Deploy========"
-                script{
-                    
-                    sh “ssh ubuntu@54.166.242.36" 
-                   
-                }
+                
             }
             
         }
