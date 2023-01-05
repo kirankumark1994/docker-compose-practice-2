@@ -18,7 +18,7 @@ pipeline{
             steps{
                 echo "========executing Deploy========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no ubuntu@54.166.242.36\" date \" ")
+                    sh(script: "ssh -o StrictHostKeyChecking=no ubuntu@54.166.242.36 \" date \" ")
                 }
                 
             }
