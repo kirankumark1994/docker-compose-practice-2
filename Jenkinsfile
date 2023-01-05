@@ -18,7 +18,10 @@ pipeline{
             steps{
                 echo "========executing Deploy========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no ubuntu@54.166.242.36 \" date \" ")
+                    
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.166.242.36 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@54.166.242.36:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.166.242.36 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
