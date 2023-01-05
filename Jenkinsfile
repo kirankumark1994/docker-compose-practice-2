@@ -1,37 +1,24 @@
 pipeline{
-    agent any 
-    
-    parameters {
-      string defaultValue: 'master', description: 'Provide branch name ', name: 'BRANCH', trim: true
-    }
-
+    agent any
     stages{
         stage("Checkout"){
             steps{
-                echo "======== Executing Checkout========"
-                script {
-                    sh(script:"git checkout ${BRANCH} ")
-                }
-
+                echo "========executing Checkout========"
             }
+            
         }
         stage("Deploy"){
             steps{
-                echo "======== Executing Deploy========"
-                    //withCredentials([sshUserPrivateKey(credentialsId: 'docker-machine-ssh-key', keyFileVariable: 'docker-ubuntu', usernameVariable: 'ubuntu')]) {
-                      sh(script:"ssh  ubuntu@44.204.237.66 \"mkdir -p /home/ubuntu/compose-deployment/ \" ")
-                      sh(script:"scp -r ${WORKSPACE}/* ubuntu@44.204.237.66:/home/ubuntu/compose-deployment/ ")
-                      sh(script:"ssh  ubuntu@44.204.237.66 \"cd /home/ubuntu/compose-deployment/ && sudo docker-compose up -d \" ")
-                //}
-                
+                echo "========executing Deploy========"
             }
-        } 
+            
+        }
         stage("Status"){
             steps{
-                echo "========Checking Status of Deployment========"
-                
+                echo "========executing Status========"
             }
-        }                
+            
+        }
     }
     post{
         always{
