@@ -19,9 +19,9 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.166.242.36 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
-                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@54.166.242.36:/home/ubuntu/compose-deployment-2/ ")
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.166.242.36 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@44.203.87.102:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
