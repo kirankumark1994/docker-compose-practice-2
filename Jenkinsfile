@@ -32,16 +32,15 @@ pipeline{
                 echo "========executing Status========"
                 script{
                     sh '''#!/bin/bash
-
-                   echo "this will work"
-                   RESULT=$?
-                   if [ $RESULT -eq 0 ]; then
-                   echo "success"
-                   else
-                   echo "failed"
-                   fi
-
-                   '''
+                       VAR1=docker ps -a | awk \'F " " {print $7}\' | sed -n 2p
+                       VAR2=docker ps -a | awk \'F " " {print $8}\' | sed -n 3p
+                       if [ $VAR1 == $VAR2 ]
+                       then
+                       echo "success"
+                       else
+                       echo "failure"
+                       fi
+                       '''
                 }
             }
             
