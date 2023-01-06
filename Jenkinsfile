@@ -35,7 +35,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102")
+                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \")
                     sh '''#!/bin/bash
 
                        RUN1=`docker-compose ps -q prometheus`
