@@ -31,6 +31,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
+                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102")
                     sh '''#!/bin/bash
                        VAR1=docker ps -a | awk \'F " " {print $7}\' | sed -n 2p
                        VAR2=docker ps -a | awk \'F " " {print $8}\' | sed -n 3p
