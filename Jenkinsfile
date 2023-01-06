@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment {
+        PATH = "$PATH:/snap/bin"
+    }
     parameters {
         string defaultValue: 'master', description: 'Provide Branch Name', name: 'BRANCH'
     }
