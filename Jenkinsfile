@@ -33,15 +33,16 @@ pipeline{
                 script{
                     sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102")
                     sh '''#!/bin/bash
-                       VAR1=docker ps -a | awk \'F " " {print $7}\' | sed -n 2p
-                       VAR2=docker ps -a | awk \'F " " {print $8}\' | sed -n 3p
-                       if [ $VAR1 == $VAR2 ]
+
+                       RUN1=`docker-compose ps -q prometheus`
+                       RUN2=`docker-compose ps -q grafana`
+
+                       if [[ "$RUN1" != "" ]] &&  [[ "$RUN2" != "" ]]
                        then
-                       echo "success"
+                       echo "The service is running!!!"
                        else
-                       echo "failure"
-                       fi
-                       '''
+                       echo "====++failure++++===="
+                       fi'''
                 }
             }
             
