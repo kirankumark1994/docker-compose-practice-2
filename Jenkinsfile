@@ -23,9 +23,9 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
-                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@44.203.87.102:/home/ubuntu/compose-deployment-2/ ")
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@34.227.150.55:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
@@ -35,7 +35,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.203.87.102 \n")
+                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \n")
                     sh '''#!/bin/bash
 
                        RUN1=`docker-compose ps -q prometheus`
