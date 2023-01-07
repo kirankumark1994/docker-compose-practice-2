@@ -38,8 +38,8 @@ pipeline{
                     sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \n")
                     sh '''#!/bin/bash
 
-                       RUN1=`docker ps | grep -w grafana `
-                       RUN2=`docker ps | grep -w prometheus`
+                       RUN1=`sudo docker ps | grep -w grafana `
+                       RUN2=`sudo docker ps | grep -w prometheus`
 
                        if [[ "$RUN1" != "" ]] &&  [[ "$RUN2" != "" ]]
                        then
