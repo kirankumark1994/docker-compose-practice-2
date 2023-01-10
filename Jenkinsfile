@@ -1,8 +1,6 @@
 pipeline{
     agent any
-    environment {
-        PATH = "$PATH:/usr/bin"
-    }
+    
     
     parameters {
         string defaultValue: 'master', description: 'Provide Branch Name', name: 'BRANCH'
@@ -23,9 +21,9 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
-                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@34.227.150.55:/home/ubuntu/compose-deployment-2/ ")
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@54.205.103.74:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
@@ -35,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@34.227.150.55 \n")
+                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \n")
                     sh '''#!/bin/bash
 
                        RUN1=`sudo docker ps | grep -w grafana `
