@@ -34,16 +34,25 @@ pipeline{
                 echo "========executing Status========"
                 script{
                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 && cd /home/ubuntu/compose-deployment-2 \n ")
-                sh '''#!/bin/bash
-                   PROMETHEUS=`docker-compose ps -q prometheus`
-                   GRAFANA=`docker-compose ps -q grafana`
-                   if [[ "$PROMETHEUS" != "" ]] &&  [[ "$GRAFANA" != "" ]] 
-                   then
-                   echo "The service $PROMETHEUS and $GRAFANA is running!!!"
-                   else
-                   echo "failure"
- 
-                   fi'''
+                   sh '''#!/bin/bash
+
+
+
+                  VAR_1=$(docker ps | awk \'F " " {print $8}\' | sed -n \'2p\')
+                  VAR_2=$(docker ps | awk \'F " " {print $7}\' | sed -n \'3p\')
+
+
+                 if [ $VAR_1 = $VAR_2 ]; then
+                 echo "Deployement is success"
+                 else
+                 echo "Deployement is failure"
+
+                 fi
+
+
+                echo "$VAR_1    and $VAR_2"
+
+                '''
                 }
                 
             }
