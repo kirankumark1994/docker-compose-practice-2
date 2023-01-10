@@ -32,20 +32,7 @@ pipeline{
         stage("Status"){
             steps{
                 echo "========executing Status========"
-                script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 \n")
-                    sh '''#!/bin/bash
-
-                       RUN1=`sudo docker ps | grep -w grafana `
-                       RUN2=`sudo docker ps | grep -w prometheus`
-
-                       if [[ "$RUN1" != "" ]] &&  [[ "$RUN2" != "" ]]
-                       then
-                       echo "The service is running!!!"
-                       else
-                       echo "====++failure++++===="
-                       fi'''
-                }
+                
             }
             
         }
