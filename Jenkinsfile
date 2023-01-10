@@ -32,6 +32,18 @@ pipeline{
         stage("Status"){
             steps{
                 echo "========executing Status========"
+                script{
+                sh '''#!/bin/bash
+                   PROMETHEUS=`docker-compose ps -q prometheus`
+                   GRAFANA=`docker-compose ps -q grafana`
+                   if [[ "$PROMETHEUS" != "" ]] &&  [[ "$GRAFANA" != "" ]] 
+                   then
+                   echo "The service $PROMETHEUS and $GRAFANA is running!!!"
+                   else
+                   echo "failure"
+ 
+                   fi'''
+                }
                 
             }
             
