@@ -33,6 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 \n ")
                 sh '''#!/bin/bash
                    PROMETHEUS=`docker-compose ps -q prometheus`
                    GRAFANA=`docker-compose ps -q grafana`
