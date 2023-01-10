@@ -21,9 +21,9 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
-                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@54.205.103.74:/home/ubuntu/compose-deployment-2/ ")
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@44.201.211.213:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
@@ -33,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@54.205.103.74 \n")
+                    sh(script: "ssh -o StrictHostKeyChecking=no  ubuntu@44.201.211.213 \n")
                     sh '''#!/bin/bash
 
                        RUN1=`sudo docker ps | grep -w grafana `
