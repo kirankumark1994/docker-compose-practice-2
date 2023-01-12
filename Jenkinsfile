@@ -33,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@52.90.253.108  \n ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@52.90.253.108")
                     sh '''#!/bin/bash
 
 
