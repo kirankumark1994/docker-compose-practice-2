@@ -38,8 +38,8 @@ pipeline{
 
 
 
-                    VAR_1=$(sudo docker ps -f name=grafana | grep grafana)
-                    VAR_2=$(sudo docker ps -f name=prometheus| grep prometheus)
+                    VAR_1=$( docker ps -f name=grafana | grep grafana)
+                    VAR_2=$( docker ps -f name=prometheus| grep prometheus)
 
                     if [ -z "$VAR_1" ] || [ -z "$VAR_2" ]
                     then
