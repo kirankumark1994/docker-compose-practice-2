@@ -33,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.204.31.147")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.204.31.147") << EOF
                     sh '''#!/bin/bash
                     
                    
@@ -49,7 +49,7 @@ pipeline{
                     else
                    echo "Deployement is failure"
                    fi
-
+                   EOF
                      '''
                 }
                 
