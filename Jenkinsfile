@@ -38,7 +38,7 @@ pipeline{
                     ssh -t ubuntu@44.204.31.147 && <<'ENDSSH'
                     
                      set -x
-                     cd ~/compose-deployment-2
+                    
 
                      docker-compose ps --services --filter "status=running" | grep  prometheus && docker-compose ps --services --filter "status=running" | grep  grafana
 
