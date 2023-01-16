@@ -1,6 +1,6 @@
 services:
-  pppprometheus:
-    image: pppprom/pppprometheus/
+  prometheus:
+    image: prom/pppprometheus/
     container_name: prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
