@@ -33,10 +33,10 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.204.31.147 \")
+                    
                     sh '''#!/bin/bash
                     
-                    
+                    ssh -o StrictHostKeyChecking=no  ubuntu@44.204.31.147 << 'EOF'
                      set -x
                     
 
