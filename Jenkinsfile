@@ -35,19 +35,20 @@ pipeline{
                 script{
                     
                    sh '''
-                    ssh -t ubuntu@44.204.31.147 <<'ENDSSH'
+                    ssh -t ubuntu@44.204.31.147 && cd ~/compose-deployment-2<<'ENDSSH'
                     
                      set -x
 
-                     VAR_1=$(docker ps -f name=grafana | grep grafana)
-                     VAR_2=$(docker ps -f name=prometheus| grep prometheus)
+                     docker-compose ps --services --filter "status=running" | grep  prometheus && docker-compose ps --services --filter "status=running" | grep  grafana
 
-                     if [ -z "$VAR_1" ] || [ -z "$VAR_2" ]
-                     then
-                     echo "deployment is failure"
-                     else
-                     echo "deployement is success"
-                     fi
+                    VAR=$(echo $?)
+                    if [ $VAR -eq 0 ]
+                    then
+                    echo "Deployement is success"
+                    else
+                   echo "Deployement is failure"
+                   fi
+
                      '''
                 }
                 
