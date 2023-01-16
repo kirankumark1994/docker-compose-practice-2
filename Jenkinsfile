@@ -33,9 +33,9 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@44.204.31.147")
-                   sh '''#!/bin/bash
-
+                    
+                   sh '''
+                    ssh -t ubuntu@44.204.31.147 <<'ENDSSH'
 
 
                      VAR_1=$(docker ps -f name=grafana | grep grafana)
