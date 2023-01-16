@@ -39,7 +39,7 @@ pipeline{
                    
                      set -x
                     
-
+                     hostname
                      docker-compose ps --services --filter "status=running" | grep  prometheus && docker-compose ps --services --filter "status=running" | grep  grafana
 
                     VAR=$(echo $?)
