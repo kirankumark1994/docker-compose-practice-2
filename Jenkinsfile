@@ -36,7 +36,8 @@ pipeline{
                     
                    sh '''
                     ssh -t ubuntu@44.204.31.147 <<'ENDSSH'
-
+                    
+                     set -x
 
                      VAR_1=$(docker ps -f name=grafana | grep grafana)
                      VAR_2=$(docker ps -f name=prometheus| grep prometheus)
