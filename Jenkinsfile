@@ -33,24 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154")
-                    sh '''#!/bin/bash
-                    
-                   sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154") << EOF
-                     set -x
-                    
-                     hostname
-                     docker-compose ps --services --filter "status=running" | grep  prometheus && docker-compose ps --services --filter "status=running" | grep  grafana
-
-                    VAR=$(echo $?)
-                    if [ $VAR -eq 0 ]
-                    then
-                    echo "Deployement is success"
-                    else
-                   echo "Deployement is failure"
-                   fi
-                   EOF
-                     '''
+                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"cd /home/ubuntu/compose-deployment-2/ && sh health.sh \" ")
                 }
                 
             }
