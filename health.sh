@@ -2,8 +2,8 @@
 
 set -x
 
-VAR_1=$(docker compose ps --filter status=running | awk 'F " " {print $4}' | sed -n "2p")
-VAR_2=$(docker compose ps --filter status=running | awk 'F " " {print $5}'  | sed -n "3p")
+VAR_1=$(sudo docker compose ps --filter status=running | awk 'F " " {print $4}' | sed -n "2p")
+VAR_2=$(sudo docker compose ps --filter status=running | awk 'F " " {print $5}'  | sed -n "3p")
 
 
 
