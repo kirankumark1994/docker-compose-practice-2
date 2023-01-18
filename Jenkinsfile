@@ -33,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"cd /home/ubuntu/compose-deployment-2/ && sh health.sh \" ")
+                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"cd /home/ubuntu/compose-deployment-2/ && sh /jenkins/health.sh \" ")
                 }
                 
             }
