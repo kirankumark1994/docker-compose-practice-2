@@ -3,7 +3,7 @@ pipeline{
     
     
     parameters {
-        string defaultValue: 'master', description: 'Provide Branch Name', name: 'BRANCH'
+        string defaultValue: ' ', description: 'Provide Branch Name', name: 'BRANCH'
     }
 
     stages{
