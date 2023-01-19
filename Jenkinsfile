@@ -21,9 +21,9 @@ pipeline{
                 echo "========executing Deploy========"
                 script{
                     
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
-                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@34.238.153.154:/home/ubuntu/compose-deployment-2/ ")
-                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.210.17.178 \"mkdir -p /home/ubuntu/compose-deployment-2/ \" ")
+                    sh(script:"scp -r ${WORKSPACE}/* ubuntu@54.210.17.178:/home/ubuntu/compose-deployment-2/ ")
+                    sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.210.17.178 \"cd /home/ubuntu/compose-deployment-2/ && sudo docker-compose up -d \" ")
                 }
                 
             }
@@ -33,7 +33,7 @@ pipeline{
             steps{
                 echo "========executing Status========"
                 script{
-                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@34.238.153.154 \"cd /home/ubuntu/compose-deployment-2/ && sh health.sh \" ")
+                     sh(script:"ssh -o StrictHostKeyChecking=no  ubuntu@54.210.17.178 \"cd /home/ubuntu/compose-deployment-2/ && sh health.sh \" ")
                 }
                 
             }
